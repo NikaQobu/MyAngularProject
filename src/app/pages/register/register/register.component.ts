@@ -40,7 +40,7 @@ export class RegisterComponent {
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(18),
-        Validators.pattern(/[A-z]/),
+        Validators.pattern(/[A-z]+$/),
       ],
     ],
     lastName: [
