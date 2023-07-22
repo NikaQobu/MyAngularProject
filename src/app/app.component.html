@@ -1,0 +1,5 @@
+<div class="content-height">
+    <app-header [user]="user$ | async" (logout)="onLogout()"></app-header>
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

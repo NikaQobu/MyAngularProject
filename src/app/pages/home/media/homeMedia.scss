@@ -1,0 +1,25 @@
+@media only screen and (max-width: 1320px){
+    .home-container{
+        width: 99% !important;
+
+        .offer-card {
+            width: 50% !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 710px){
+    .home-container{
+        .carousel-side{
+            display: none !important;
+        }
+        .cover{
+            display: block !important;
+        }
+        .offer-card {
+            width: 100% !important;
+            max-width: 600px !important;
+            min-width: 250px !important;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+<div class="header">
+  <div class="welcome">
+    <span *ngIf="user"> Hello, {{ user.username }} </span>
+  </div>
+  <div class="container">
+    <ul class="left-side">
+      <li class="menu-icon" (click)="openMenu()">
+        <span class="material-symbols-outlined"> menu </span>
+      </li>
+      <li class="left-side-menu" routerLink="/home">
+        <a>Home</a>
+      </li>
+      <li class="left-side-menu" routerLink="/products">
+        <a>Products</a>
+      </li>
+      <li class="left-side-menu" routerLink="/contact">
+        <a>Contact</a>
+      </li>
+    </ul>
+
+    <ul *ngIf="!user" class="right-side">
+      <li class="right" routerLink="/login">
+        <a>Log In</a>
+      </li>
+      <li class="right" routerLink="/register">
+        <a>Register</a>
+      </li>
+    </ul>
+    <ul *ngIf="user" class="right-side">
+      <li class="right" (click)="logout.emit()">
+        <a>Log Out</a>
+      </li>
+      <li routerLink="/cart">
+        <span class="material-symbols-outlined cart"> shopping_cart </span>
+        <span> {{ count$ | async }} </span>
+      </li>
+    </ul>
+  </div>
+
+  <div
+    class="close-toggle-menu"
+    [ngClass]="menuStatus == true ? 'open' : ''"
+    (click)="openMenu()"
+  >
+    <div class="toggle-menu">
+      <ul>
+        <li class="left-side-menu" routerLink="/home">
+          <a>Home</a>
+        </li>
+        <li class="left-side-menu" routerLink="/products">
+          <a>Products</a>
+        </li>
+        <li class="left-side-menu" routerLink="/contact">
+          <a>Contact</a>
+        </li>
+        <ng-container *ngIf="!user">
+          <li routerLink="/login">
+            <a>Log In</a>
+          </li>
+          <li routerLink="/register">
+            <a>Register</a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="user">
+          <li (click)="logout.emit()">
+            <a>Log Out</a>
+          </li>
+          <li routerLink="/cart">
+            <span class="material-symbols-outlined"> shopping_cart </span>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>

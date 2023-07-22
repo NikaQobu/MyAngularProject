@@ -1,0 +1,23 @@
+@media only screen and (max-width: 800px) {
+  .cart-container {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .total-price {
+    text-align: center !important;
+  }
+  .cart-container {
+    .item {
+      flex-direction: column-reverse !important;
+      img {
+        margin: 1rem auto !important;
+      }
+      .description {
+        width: 100% !important;
+        margin: auto !important;
+      }
+    }
+  }
+}

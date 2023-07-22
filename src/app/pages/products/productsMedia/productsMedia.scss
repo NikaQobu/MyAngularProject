@@ -1,0 +1,57 @@
+@media only screen and (max-width: 1520px) {
+  .container-cards {
+    .box {
+      width: 48% !important;
+    }
+  }
+}
+@media only screen and (max-width: 1020px) {
+  .container-cards {
+    justify-content: center !important;
+    .box {
+      width: 80% !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .search {
+    text-align: center !important;
+  }
+  .sort{
+    select {
+      width: 25% !important;
+    }
+  }
+}
+@media only screen and (max-width: 770px) {
+  .sort{
+    select {
+      width: 35% !important;
+    }
+  }
+  .container-cards {
+    .box {
+      width: 100% !important;
+    }
+  }
+
+
+}
+
+@media only screen and (max-width: 470px) {
+  .box{
+    p{
+      height: 160px !important;
+    }
+  }
+  .sort{
+    select {
+      width: 60% !important;
+    }
+  }
+
+  .container-cards {
+    width: 99% !important;
+  }
+}

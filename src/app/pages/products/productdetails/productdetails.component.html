@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="card">
+    <h3>{{ product.title }}</h3>
+    <img [src]="product.imgs" alt="Loading Img" />
+    <h6>{{ product.description }}</h6>
+  </div>
+  <div class="more-details">
+    <table>
+      <tr>
+        <td>rating:</td>
+        <td>{{ product.rating }}</td>
+      </tr>
+      <tr>
+        <td>stock:</td>
+        <td>{{ product.stock }}</td>
+      </tr>
+      <tr>
+        <td>brand:</td>
+        <td>{{ product.brand }}</td>
+      </tr>
+      <tr>
+        <td>category:</td>
+        <td>{{ product.category }}</td>
+      </tr>
+      <tr>
+        <td>discountPercentage:</td>
+        <td>{{ product.discountPercentage }}</td>
+      </tr>
+      <tr>
+        <td><h4>price:</h4></td>
+        <td>
+          <h4>{{ product.price | currency }}</h4>
+        </td>
+      </tr>
+      <tr>
+        <td><h5>count:</h5></td>
+        <td>
+          <h5>
+            <input
+              id="itemCount"
+              type="number"
+              value="1"
+              [(ngModel)]="itemCount"
+              min="1"
+            />
+          </h5>
+        </td>
+      </tr>
+      <tr>
+        <td><h5>total price:</h5></td>
+        <td>
+          <h4>{{ product.price * itemCount | currency }}</h4>
+        </td>
+      </tr>
+    </table>
+
+    <div class="buy-item" (click)="productTocart(product)">
+      <span>Add to cart</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div *ngIf="status" class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div class="search">
+  <input
+    name="search"
+    type="text"
+    placeholder="search"
+    maxlength="25"
+    [(ngModel)]="search"
+    (input)="searchProduct()"
+  />
+</div>
+<div class="sort">
+  <select name="sort" (change)="searchProduct()" [(ngModel)]="selectValue">
+    <option value="choose">choose sorting</option>
+    <option value="up">up</option>
+    <option value="down">down</option>
+  </select>
+</div>
+<div *ngIf="status == false" class="container-cards">
+  <div
+    *ngFor="let card of products | productFilter : search : selectValue"
+    class="box"
+    routerLink="details"
+    (click)="updateProductDetailsParam(card)"
+  >
+    <h4>{{ card.title }}</h4>
+    <img [src]="card.images[0]" alt="Loading Img" />
+    <p>{{ card.description }}</p>
+    <h2>Price: {{ card.price | currency }}</h2>
+  </div>
+</div>

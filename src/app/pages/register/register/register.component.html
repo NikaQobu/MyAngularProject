@@ -1,0 +1,214 @@
+<div class="registered" *ngIf="statusSuccesse">
+  <h5>Registration successed !</h5>
+  <button (click)="registerSuccesse()">Log in</button>
+</div>
+<div class="move-container" *ngIf="!statusSuccesse">
+  <div class="container" [formGroup]="registerForm">
+    <div class="inputs">
+      <h4>Registration</h4>
+      <input
+        maxlength="25"
+        name="Username"
+        type="text"
+        placeholder="Username"
+        formControlName="username"
+      />
+      <div class="validation-error" *ngIf="checkUserRegistered">
+        *This username already used
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.username.errors?.['required'] && controls.username.dirty"
+      >
+        *This field is required !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.username.errors?.['minlength'] && controls.username.dirty"
+      >
+        *This username is too short !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.username.errors?.['maxlength'] && controls.username.dirty"
+      >
+        *This username is too long !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.username.errors?.['pattern'] && controls.username.dirty"
+      >
+        *This username started with symbols or numbers !
+      </div>
+
+      <input
+        maxlength="25"
+        name="Name"
+        type="text"
+        placeholder="Name"
+        formControlName="name"
+      />
+      <div
+        class="validation-error"
+        *ngIf="controls.name.errors?.['required'] && controls.name.dirty"
+      >
+        *This field is required !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.name.errors?.['minlength'] && controls.name.dirty"
+      >
+        *This name is too short !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.name.errors?.['maxlength'] && controls.name.dirty"
+      >
+        *This name is too long !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.name.errors?.['pattern'] && controls.name.dirty"
+      >
+        *This name started with symbols or numbers !
+      </div>
+      <input
+        maxlength="25"
+        name="Lname"
+        type="text"
+        placeholder="Last Name"
+        formControlName="lastName"
+      />
+      <div
+        class="validation-error"
+        *ngIf="controls.lastName.errors?.['required'] && controls.lastName.dirty"
+      >
+        *This field is required !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.lastName.errors?.['minlength'] && controls.lastName.dirty"
+      >
+        *This Last Name is too short !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.lastName.errors?.['maxlength'] && controls.lastName.dirty"
+      >
+        *This Last Name is too long !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.lastName.errors?.['pattern'] && controls.lastName.dirty"
+      >
+        *This Last Name started with symbols or numbers !
+      </div>
+      <input
+        maxlength="25"
+        name="Email"
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <div
+        class="validation-error"
+        *ngIf="controls.email.errors?.['required'] && controls.email.dirty"
+      >
+        *This field is required !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.email.errors?.['maxlength'] && controls.email.dirty"
+      >
+        *This email is too long !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.email.errors?.['email'] && controls.email.dirty"
+      >
+        *Invaild email !
+      </div>
+      <input
+        maxlength="25"
+        name="Password"
+        [type]="passwordInputType"
+        placeholder="Password"
+        formControlName="password"
+        (input)="controls.confirm.updateValueAndValidity()"
+      />
+      <span
+        (click)="updateVisibility('off', 'passwordInpurt')"
+        *ngIf="statusPasswordVisibility == false"
+        class="material-symbols-outlined visibility"
+      >
+        visibility_off
+      </span>
+      <span
+        (click)="updateVisibility('on', 'passwordInpurt')"
+        *ngIf="statusPasswordVisibility"
+        class="material-symbols-outlined visibility"
+      >
+        visibility
+      </span>
+      <div
+        class="validation-error"
+        *ngIf="controls.password.errors?.['required'] && controls.password.dirty"
+      >
+        *This field is required
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.password.errors?.['maxlength'] && controls.password.dirty"
+      >
+        *This password is too long !
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.password.errors?.['minlength'] && controls.password.dirty"
+      >
+        *This password is too short !
+      </div>
+
+      <input
+        maxlength="25"
+        name="Confirm"
+        [type]="confirmInputType"
+        placeholder="Confirm Password"
+        formControlName="confirm"
+      />
+      <span
+        (click)="updateVisibility('off', 'confirmInpurt')"
+        *ngIf="statusConfirmVisibility == false"
+        class="material-symbols-outlined visibility"
+      >
+        visibility_off
+      </span>
+      <span
+        (click)="updateVisibility('on', 'confirmInpurt')"
+        *ngIf="statusConfirmVisibility"
+        class="material-symbols-outlined visibility"
+      >
+        visibility
+      </span>
+      <div
+        class="validation-error"
+        *ngIf="controls.confirm.errors?.['confirm'] && controls.confirm.dirty"
+      >
+        {{ controls.confirm.errors?.['confirm']  }}
+      </div>
+      <div
+        class="validation-error"
+        *ngIf="controls.confirm.errors?.['required'] && controls.confirm.dirty"
+      >
+        {{ controls.confirm.errors?.['required']  }}
+      </div>
+    </div>
+    <button
+      class="register"
+      (click)="Register()"
+      [disabled]="registerForm.invalid"
+    >
+      Register
+    </button>
+  </div>
+</div>

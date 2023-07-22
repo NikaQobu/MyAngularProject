@@ -1,0 +1,51 @@
+<div class="cart-container">
+  <div class="empty" *ngIf="cartProducts.length == 0">
+    <h2>Cart is empty</h2>
+    <img src="https://rb.gy/r52w3" alt="Img loading.." />
+  </div>
+  <div class="total-price" *ngIf="cartProducts.length > 0">
+    <h6>amount: {{ total | currency }}</h6>
+    <button>Buy with card</button>
+  </div>
+  <div *ngFor="let product of cartProducts" class="item">
+    <img [src]="product.imgs" alt="Loading Img" />
+    <div class="description">
+      <div class="delete">
+        <span
+          (click)="removeItem(product.id)"
+          class="material-symbols-outlined"
+        >
+          close
+        </span>
+      </div>
+      <h4>{{ product.title }}</h4>
+      <p>{{ product.description }}</p>
+      <table>
+        <tr>
+          <th>price</th>
+          <th>count</th>
+          <th>total price</th>
+        </tr>
+        <tr>
+          <td>
+            {{ product.price | currency }}
+          </td>
+          <td>
+            <h5>
+              <input
+                class="price"
+                id="itemCount"
+                type="number"
+                value="1"
+                [(ngModel)]="product.itemCount"
+                min="1"
+                (input)="sumTotalPrice()"
+              />
+            </h5>
+          </td>
+          <td>{{ product.price * product.itemCount | currency }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

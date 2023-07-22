@@ -1,0 +1,41 @@
+<div class="home-container">
+  <div class="cover" >
+
+  </div>
+  <div class="carousel-side">
+    <div class="carousel" routerLink="/products">
+      <div class="move" [ngStyle]="moveStyle">
+        <img *ngFor="let img of imgs" [src]="img" alt="" />
+      </div>
+    </div>
+
+    <div class="points">
+      <span
+        *ngFor="let item of imgs; let i = index"
+        class="material-symbols-outlined point"
+        (click)="updateSlide(i)"
+        [ngClass]="{ 'selected-point': item == statusSlideSelected }"
+      >
+        radio_button_unchecked
+      </span>
+    </div>
+  </div>
+  <div class="offers-side">
+    <div *ngIf="statusSpiner" class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <h4>Our offers:</h4>
+    <div class="offer-container">
+      <div
+        *ngFor="let product of products | offers"
+        class="offer-card"
+        (click)="updateProductDetailsParam(product.id - 1)"
+      >
+        <h4>{{ product.title }}</h4>
+        <img [src]="product.images[0]" alt="Loading Img" />
+        <p>{{ product.description }}</p>
+        <h2>ფასი: {{ product.price | currency }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
