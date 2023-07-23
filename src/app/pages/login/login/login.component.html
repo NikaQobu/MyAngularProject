@@ -1,6 +1,5 @@
 <div class="move-container" *ngIf="vm$ | async as vm">
   <div class="container">
-    
     <div class="inputs" [formGroup]="loginData">
       <input
         name="Username"
@@ -14,24 +13,6 @@
         *ngIf="controls.username.errors?.['required'] && controls.username.dirty"
       >
         *This field is required !
-      </div>
-      <div
-        class="validation-error"
-        *ngIf="controls.username.errors?.['minlength'] && controls.username.dirty"
-      >
-        *This username is too short !
-      </div>
-      <div
-        class="validation-error"
-        *ngIf="controls.username.errors?.['maxlength'] && controls.username.dirty"
-      >
-        *This username is too long !
-      </div>
-      <div
-        class="validation-error"
-        *ngIf="controls.username.errors?.['pattern'] && controls.username.dirty"
-      >
-        *This username started with symbols or numbers !
       </div>
       <input
         name="Password"
@@ -60,28 +41,20 @@
       >
         *This field is required
       </div>
-      <div
-        class="validation-error"
-        *ngIf="controls.password.errors?.['maxlength'] && controls.password.dirty"
-      >
-        *This password is too long !
+
+      <div class="validation-error" *ngIf="vm.errorMsg">
+        {{ vm.errorMsg }}
       </div>
-      <div
-        class="validation-error"
-        *ngIf="controls.password.errors?.['minlength'] && controls.password.dirty"
-      >
-        *This password is too short !
-      </div>
+
+      <button class="logIn" (click)="onSubmit()">
+        Log In
+        <span
+          *ngIf="vm.loading"
+          class="spinner-border spinner-border-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+      </button>
     </div>
-
-    <div class="validation-error" *ngIf="vm.errorMsg">
-      {{ vm.errorMsg }}
-    </div>
-
-
-    <button class="logIn" (click)="onSubmit()">
-      Log In
-      <span *ngIf="vm.loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    </button>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="container-contact">
   <div class="send-successe" *ngIf="statusSendMessage">
     <h5>Message Send successed !</h5>
-    <button (click)="updatestatusSendMessage()" >OK</button>
+    <button (click)="updatestatusSendMessage()">OK</button>
   </div>
   <div class="message-contact">
     <div class="contact-text">
@@ -78,13 +78,13 @@
           class="validation-error"
           *ngIf="controls.message.errors?.['maxlength'] && controls.message.dirty"
         >
-          *This name is too long !
+          *This text is too long !
         </div>
         <div
           class="validation-error"
           *ngIf="controls.message.errors?.['minlength'] && controls.message.dirty"
         >
-          *This name is too short !
+          *This text is too short !
         </div>
         <textarea
           type="text"
@@ -97,7 +97,12 @@
         ></textarea>
       </div>
       <div class="send-message">
-        <button (click)="sendMessageSuccesse()" [disabled]="contactForm.invalid">Send Message</button>
+        <button
+          (click)="sendMessageSuccesse()"
+          [disabled]="contactForm.invalid"
+        >
+          Send Message
+        </button>
       </div>
     </form>
   </div>

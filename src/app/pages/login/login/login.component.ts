@@ -14,27 +14,16 @@ export class LoginComponent {
   passwordInputType: 'text' | 'password' = 'password';
 
   loginData = this.fb.group({
-    username: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(18),
-        Validators.pattern(/^[A-z]/),
-      ],
-    ],
-    password: [
-      '',
-      [Validators.required, Validators.minLength(6), Validators.maxLength(18)],
-    ],
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]],
   });
 
   loading$ = this.authService.loading;
   errorMsg$ = this.authService.errorMsg;
 
-  vm$ = combineLatest([this.loading$, this.errorMsg$]).pipe (
-    map(([loading,errorMsg]) => ({loading, errorMsg}))
-  )
+  vm$ = combineLatest([this.loading$, this.errorMsg$]).pipe(
+    map(([loading, errorMsg]) => ({ loading, errorMsg }))
+  );
 
   constructor(
     private authService: AuthService,
@@ -55,9 +44,9 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    const username = this.loginData.value.username
-    const password = this.loginData.value.password
-    if(username && password)
-      this.authService.login({username: username, password: password})
+    const username = this.loginData.value.username;
+    const password = this.loginData.value.password;
+    if (username && password)
+      this.authService.login({ username: username, password: password });
   }
 }
