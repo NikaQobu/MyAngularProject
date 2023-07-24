@@ -12,25 +12,25 @@
   }
 }
 
-.registered{
+.registered {
   border: 1px solid black;
   width: 60%;
-  text-align: center; 
+  text-align: center;
   padding: 4rem 0rem;
   color: green;
   margin: 5rem auto;
   border-radius: 1rem;
   max-width: 500px;
   max-height: 300px;
-  animation: anime .1s linear 0s alternate;
-  button{
+  animation: anime 0.1s linear 0s alternate;
+  button {
     margin-top: 1rem;
     width: 35%;
     border: none;
     background-color: gray;
     border-radius: 1rem;
   }
-  button:hover{
+  button:hover {
     background-color: rgb(203, 202, 202);
   }
 }
