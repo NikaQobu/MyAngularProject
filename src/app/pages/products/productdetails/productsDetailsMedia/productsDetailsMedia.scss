@@ -1,23 +1,22 @@
 @media only screen and (max-width: 1000px) {
-    .container {
-        width: 60% !important;
-        flex-direction: column !important;
-        .card{
-            width: 100% !important;
-        }
-        .more-details {
-            width: 100% !important;
-            .buy-item{
-                width: 40% !important;
-                margin: 2rem auto !important;
-            }
-        }
-        
+  .container {
+    width: 60% !important;
+    flex-direction: column !important;
+    .card {
+      width: 100% !important;
+    }
+    .more-details {
+      width: 100% !important;
+      .buy-item {
+        width: 40% !important;
+        margin: 2rem auto !important;
+      }
     }
   }
+}
 
-  @media only screen and (max-width: 650px){
-    .container {
-        width: 100% !important;
-    }
+@media only screen and (max-width: 650px) {
+  .container {
+    width: 100% !important;
   }
+}

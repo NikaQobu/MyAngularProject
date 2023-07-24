@@ -45,7 +45,7 @@
       width: 100%;
       td {
         input {
-          width: 15%;
+          width: 30%;
           border: none;
           outline: none;
         }
@@ -59,6 +59,7 @@
       border-radius: 0.5rem;
       padding: 1rem 0rem;
       text-align: center;
+      color: black;
     }
     .buy-item:hover {
       cursor: pointer;
