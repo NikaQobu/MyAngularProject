@@ -19,8 +19,8 @@ export class ProductsComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {}
 
-  updateProductDetailsParam(card: Product) {
-    this.productService.setProductDetailsParam(card);
+  updateProductDetailsParam(id: number) {
+    this.productService.setProductDetailsParam(id);
   }
 
   searchProduct() {

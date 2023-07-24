@@ -23,7 +23,7 @@
     *ngFor="let card of products | productFilter : search : selectValue"
     class="box"
     routerLink="details"
-    (click)="updateProductDetailsParam(card)"
+    (click)="updateProductDetailsParam(card.id)"
   >
     <h4>{{ card.title }}</h4>
     <img [src]="card.images[0]" alt="Loading Img" />

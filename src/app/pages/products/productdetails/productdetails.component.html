@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="product$ | async as product">
   <div class="card">
     <h3>{{ product.title }}</h3>
-    <img [src]="product.imgs" alt="Loading Img" />
+    <img [src]="product.images[0]" alt="Loading Img" />
     <h6>{{ product.description }}</h6>
   </div>
   <div class="more-details">

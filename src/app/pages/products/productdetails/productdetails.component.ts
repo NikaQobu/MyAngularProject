@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -9,8 +8,8 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./productdetails.component.scss'],
 })
 export class ProductdetailsComponent implements OnInit {
-  product: any = {};
   itemCount = 1;
+  product$ = this.productService.product$;
 
   constructor(
     private productService: ProductsService,
@@ -19,19 +18,10 @@ export class ProductdetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParamMap.subscribe((response) => {
-      this.product = {
-        id: response.get('id'),
-        title: response.get('title'),
-        price: response.get('price'),
-        description: response.get('description'),
-        imgs: response.get('imgs'),
-        rating: response.get('rating'),
-        stock: response.get('stock'),
-        brand: response.get('brand'),
-        category: response.get('category'),
-        discountPercentage: response.get('discountPercentage'),
-        itemCount: 0,
-      };
+      let productID = response.get('id');
+      if (productID) {
+         this.productService.searchProduct(parseInt(productID));
+      }
     });
   }
 

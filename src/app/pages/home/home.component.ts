@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   updateProductDetailsParam(id: number) {
-    this.productsService.setProductDetailsParam(this.products[id]);
+    this.productsService.setProductDetailsParam(id);
   }
 
   

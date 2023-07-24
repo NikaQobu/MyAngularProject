@@ -8,7 +8,7 @@
     <button>Buy with card</button>
   </div>
   <div *ngFor="let product of cartProducts" class="item">
-    <img [src]="product.imgs" alt="Loading Img" />
+    <img [src]="product.images[0]" alt="Loading Img" />
     <div class="description">
       <div class="delete">
         <span

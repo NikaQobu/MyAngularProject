@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetProductsResponse, Product } from '../types/data';
 import { ENVINROMENT } from 'src/environment/environment';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +12,7 @@ export class ProductsService {
   baseUrl = ENVINROMENT.baseUrl;
   cartProducts: any = [];
   cartItemCount$ = new BehaviorSubject(0);
+  product$ = new BehaviorSubject<Product | null>(null);
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -27,34 +28,34 @@ export class ProductsService {
     } else {
       product.itemCount = newCount;
       this.cartProducts.push(product);
-      this.cartItemCount$.next(this.cartItemCount$.value  + 1);
+      this.cartItemCount$.next(this.cartItemCount$.value + 1);
     }
   }
 
   removeCartProduct(id: number) {
     this.cartProducts = this.cartProducts.filter((e: any) => e.id != id);
-    this.cartItemCount$.next(this.cartItemCount$.value  - 1);
+    this.cartItemCount$.next(this.cartItemCount$.value - 1);
   }
 
   getCartsProducts() {
     return this.cartProducts;
   }
 
-  setProductDetailsParam(product: Product) {
+  setProductDetailsParam(id: number) {
     this.router.navigate(['products/details'], {
       queryParams: {
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        description: product.description,
-        imgs: product.images,
-        rating: product.rating,
-        stock: product.stock,
-        brand: product.brand,
-        category: product.category,
-        discountPercentage: product.discountPercentage,
+        id: id,
       },
     });
+  }
+
+  searchProduct(id: number) {
+    this.product$.next(null);
+    this.http
+      .get<Product>(`${this.baseUrl}/products/${id}`)
+      .subscribe((response) => {
+        this.product$.next(response);
+      });
   }
 
   setSearchParam(searchText: string, sorting: string) {
