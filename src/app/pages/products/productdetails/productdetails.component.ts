@@ -10,6 +10,8 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductdetailsComponent implements OnInit {
   itemCount = 1;
   product$ = this.productService.product$;
+  status$ = this.productService.productDetailsSpinerStatus$;
+  activImg = '';
 
   constructor(
     private productService: ProductsService,
@@ -20,12 +22,18 @@ export class ProductdetailsComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe((response) => {
       let productID = response.get('id');
       if (productID) {
-         this.productService.searchProduct(parseInt(productID));
+        this.productService.searchProduct(parseInt(productID));
       }
     });
   }
 
   productTocart(product: any) {
     this.productService.setCartProducts(product, this.itemCount);
+    this.itemCount = 0;
+  }
+
+  changeImg(img: string) {
+    this.activImg = img;
+    console.log(img);
   }
 }

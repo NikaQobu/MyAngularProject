@@ -1,8 +1,33 @@
+<div class="spiner">
+  <div *ngIf="status$ | async" class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 <div class="container" *ngIf="product$ | async as product">
   <div class="card">
     <h3>{{ product.title }}</h3>
-    <img [src]="product.images[0]" alt="Loading Img" />
+    <img
+      *ngIf="activImg"
+      class="active-img"
+      [src]="activImg"
+      alt="Loading Img"
+    />
+    <img
+      *ngIf="!activImg"
+      class="active-img"
+      [src]="product.images[0]"
+      alt="Loading Img"
+    />
     <h6>{{ product.description }}</h6>
+
+    <div class="other-imgs">
+      <img
+        *ngFor="let img of product.images"
+        [src]="img"
+        alt=""
+        (click)="changeImg(img)"
+      />
+    </div>
   </div>
   <div class="more-details">
     <table>
@@ -41,7 +66,7 @@
               type="number"
               value="1"
               [(ngModel)]="itemCount"
-              min="1"
+              min="0"
             />
           </h5>
         </td>
@@ -54,8 +79,8 @@
       </tr>
     </table>
 
-    <div class="buy-item" (click)="productTocart(product)">
-      <span>Add to cart</span>
-    </div>
+    <button class="buy-item" (click)="productTocart(product)">
+      Add to cart
+    </button>
   </div>
 </div>

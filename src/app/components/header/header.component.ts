@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  HostListener,
+} from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { User } from 'src/app/types/user';
 
@@ -15,6 +21,11 @@ export class HeaderComponent {
   count$ = this.productService.cartItemCount$;
 
   constructor(private productService: ProductsService) {}
+
+  @HostListener('window:scroll', ['$event'])
+  windowScroll(event: Event) {
+    this.menuStatus = false;
+  }
 
   openMenu() {
     this.menuStatus = !this.menuStatus;

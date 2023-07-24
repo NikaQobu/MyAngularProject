@@ -13,6 +13,7 @@ export class ProductsService {
   cartProducts: any = [];
   cartItemCount$ = new BehaviorSubject(0);
   product$ = new BehaviorSubject<Product | null>(null);
+  productDetailsSpinerStatus$ = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -51,10 +52,12 @@ export class ProductsService {
 
   searchProduct(id: number) {
     this.product$.next(null);
+    this.productDetailsSpinerStatus$.next(true);
     this.http
       .get<Product>(`${this.baseUrl}/products/${id}`)
       .subscribe((response) => {
         this.product$.next(response);
+        this.productDetailsSpinerStatus$.next(false);
       });
   }
 
