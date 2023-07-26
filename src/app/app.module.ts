@@ -17,6 +17,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { OffersPipe } from './pipes/offers.pipe';
 import { CartComponent } from './pages/cart/cart.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ENVINROMENT } from 'src/environment/environment';
+import { config } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,12 @@ import { ErrorComponent } from './pages/error/error.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem(ENVINROMENT.tokenKey),
+        allowedDomains: ['dummyjson.com'],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

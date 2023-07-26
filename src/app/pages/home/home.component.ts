@@ -18,12 +18,11 @@ export class HomeComponent implements OnInit {
     'https://alta.ge/images/promo/292/asus_notebooks_web_32ee-fj.png',
     'https://alta.ge/images/promo/289/aseries_web_6hlw-7m.png',
     'https://alta.ge/images/promo/292/samsung_tv1_web.png',
-    'https://alta.ge/images/promo/292/macbook_air15_ava_price_web_en.png',
     'https://alta.ge/images/promo/289/tcl_web.png',
     'https://alta.ge/images/promo/292/apple_watch_se_web_en.png',
     'https://alta.ge/images/promo/289/lg_mon_web.png',
   ];
-  products:Product[] = [];
+  products: Product[] = [];
   moveStyle = { transform: `translateX(${0}%)` };
   statusSpiner = true;
   statusSlideSelected = this.imgs[0];
@@ -36,15 +35,10 @@ export class HomeComponent implements OnInit {
     this.productsService.setProductDetailsParam(id);
   }
 
-  
-
   ngOnInit(): void {
     this.productsService.getAllProducts().subscribe((response) => {
       this.products = response.products;
       this.statusSpiner = false;
-    })
-
-    
-    
+    });
   }
 }

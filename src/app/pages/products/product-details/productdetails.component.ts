@@ -37,12 +37,12 @@ export class ProductdetailsComponent implements OnInit {
   }
 
   productTocart(product: Product) {
-    this.productService.setCartProducts(product, this.itemCount);
-    this.itemCount = 0;
-  }
-
-  loginUser() {
-    this.router.navigate(['login']);
+    if (this.authService.user$.value) {
+      this.productService.setCartProducts(product, this.itemCount);
+      this.itemCount = 0;
+    } else {
+      this.router.navigate(['login']);
+    }
   }
 
   changeImg(img: string) {
