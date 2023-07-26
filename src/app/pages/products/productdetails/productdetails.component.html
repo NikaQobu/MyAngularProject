@@ -79,8 +79,15 @@
       </tr>
     </table>
 
-    <button class="buy-item" (click)="productTocart(product)">
+    <button
+      *ngIf="user$ | async"
+      class="buy-item"
+      (click)="productTocart(product)"
+    >
       Add to cart
+    </button>
+    <button *ngIf="!(user$ | async)" class="buy-item" (click)="loginUser()">
+      Log In
     </button>
   </div>
 </div>

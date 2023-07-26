@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { Product } from 'src/app/types/data';
 
 @Component({
   selector: 'app-productdetails',
@@ -12,10 +14,13 @@ export class ProductdetailsComponent implements OnInit {
   product$ = this.productService.product$;
   status$ = this.productService.productDetailsSpinerStatus$;
   activImg = '';
+  user$ = this.authService.user;
 
   constructor(
     private productService: ProductsService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -27,9 +32,17 @@ export class ProductdetailsComponent implements OnInit {
     });
   }
 
-  productTocart(product: any) {
+  test() {
+    console.log('mushaobs');
+  }
+
+  productTocart(product: Product) {
     this.productService.setCartProducts(product, this.itemCount);
     this.itemCount = 0;
+  }
+
+  loginUser() {
+    this.router.navigate(['login']);
   }
 
   changeImg(img: string) {
