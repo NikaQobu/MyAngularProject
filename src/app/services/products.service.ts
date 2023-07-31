@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetProductsResponse, Product } from '../types/data';
 import { ENVINROMENT } from 'src/environment/environment';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,12 +12,12 @@ export class ProductsService {
   baseUrl = ENVINROMENT.baseUrl;
   cartProducts: any = [];
   cartItemCount$ = new BehaviorSubject(0);
-  product$ = new BehaviorSubject<Product | null>(null);
   productDetailsSpinerStatus$ = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router, private http: HttpClient) {}
 
   getAllProducts() {
+    this.productDetailsSpinerStatus$.next(false);
     return this.http.get<GetProductsResponse>(`${this.baseUrl}/products`);
   }
 
@@ -51,14 +51,7 @@ export class ProductsService {
   }
 
   searchProduct(id: number) {
-    this.product$.next(null);
-    this.productDetailsSpinerStatus$.next(true);
-    this.http
-      .get<Product>(`${this.baseUrl}/products/${id}`)
-      .subscribe((response) => {
-        this.product$.next(response);
-        this.productDetailsSpinerStatus$.next(false);
-      });
+    return this.http.get<Product>(`${this.baseUrl}/products/${id}`);
   }
 
   setSearchParam(searchText: string, sorting: string) {
