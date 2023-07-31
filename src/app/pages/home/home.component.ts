@@ -11,15 +11,19 @@ export class HomeComponent implements OnInit {
   constructor(private productsService: ProductsService) {}
   imgs = [
     'https://alta.ge/images/promo/289/summer_web_en.png',
-    'https://alta.ge/images/promo/289/ac_web_m3lt-ot.png',
-    'https://alta.ge/images/promo/293/galaxy_cashback_web.png',
-    'https://alta.ge/images/promo/293/iphone14pro1_gift_web_en.png',
-    'https://alta.ge/images/promo/289/samsung_ok_2.png',
-    'https://alta.ge/images/promo/292/asus_notebooks_web_32ee-fj.png',
-    'https://alta.ge/images/promo/289/aseries_web_6hlw-7m.png',
+    'https://alta.ge/images/promo/295/galaxy_zfold5_soon_web.png',
+    'https://alta.ge/images/promo/296/ac_web.png',
+    'https://alta.ge/images/promo/294/tradein_web_g90c-m6.png',
+    'https://alta.ge/images/promo/295/iphone14pro_sale_web_en.png',
+    'https://alta.ge/images/promo/293/bang_web_en.png',
+    'https://alta.ge/images/promo/294/samsung_ha.png',
+    'https://alta.ge/images/promo/294/macbook_air_web_en.png',
     'https://alta.ge/images/promo/292/samsung_tv1_web.png',
-    'https://alta.ge/images/promo/289/tcl_web.png',
-    'https://alta.ge/images/promo/292/apple_watch_se_web_en.png',
+    'https://alta.ge/images/promo/292/asus_notebooks_web_32ee-fj.png',
+    'https://alta.ge/images/promo/292/lenovo_v14_web.png',
+    'https://alta.ge/images/promo/295/tcl_tv_web.png',
+    'https://alta.ge/images/promo/295/aeg_sale_web.png',
+    'https://alta.ge/images/promo/296/apple_watch_se_web_en.png',
     'https://alta.ge/images/promo/289/lg_mon_web.png',
   ];
   products: Product[] = [];
