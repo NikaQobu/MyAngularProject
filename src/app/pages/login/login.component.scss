@@ -1,7 +1,8 @@
 @import "./media/login-media.scss";
+@import "/src/app/color.scss";
 
 .validation-error {
-  color: red;
+  color: $validation_color;
   margin-bottom: 1rem;
 }
 
@@ -22,11 +23,11 @@
   height: 100%;
   position: absolute;
   animation: anime 1s linear 0s alternate;
-  background-color: rgb(203, 202, 202);
+  background-color: $move_container_color;
   .container {
     width: 30%;
     margin: 5rem auto;
-    background-color: gray;
+    background-color: $main_color;
     text-align: center;
     padding: 2rem 0rem;
     border-radius: 1rem;
@@ -53,13 +54,13 @@
       width: 30%;
       margin: auto;
       padding: 0.5rem 0rem;
-      background-color: white;
+      background-color: $start_color;
       border-radius: 1rem;
       border: none;
     }
     .logIn:hover {
       cursor: pointer;
-      background-color: rgb(107, 102, 102);
+      background-color: $hover_color;
     }
   }
 }

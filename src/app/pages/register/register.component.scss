@@ -1,4 +1,5 @@
 @import "./media/register-media.scss";
+@import "/src/app/color.scss";
 
 @keyframes anime {
   0% {
@@ -27,11 +28,11 @@
     margin-top: 1rem;
     width: 35%;
     border: none;
-    background-color: gray;
+    background-color: $main_color;
     border-radius: 1rem;
   }
   button:hover {
-    background-color: rgb(203, 202, 202);
+    background-color: $hover_color;
   }
 }
 
@@ -40,18 +41,18 @@
   height: 100%;
   position: absolute;
   animation: anime 1s linear 0s alternate;
-  background-color: rgb(203, 202, 202);
+  background-color: $move_container_color;
   .container {
     width: 30%;
     margin: 2rem auto;
-    background-color: gray;
+    background-color: $main_color;
     text-align: center;
     padding: 1rem 0rem;
     border-radius: 1rem;
 
     .inputs {
       .validation-error {
-        color: red;
+        color: $validation_color;
       }
       input {
         margin: 1rem 0rem;
@@ -76,11 +77,11 @@
       padding: 0.5rem 0rem;
       border: none;
       border-radius: 0.5rem;
-      background-color: white;
+      background-color: $start_color;
     }
     .register:hover {
       cursor: pointer;
-      background-color: rgb(107, 102, 102);
+      background-color: $hover_color;
     }
   }
 }

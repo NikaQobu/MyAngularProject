@@ -1,4 +1,5 @@
 @import "./media/products-media.scss";
+@import "/src/app/color.scss";
 .spiner {
   margin-top: 1rem;
   text-align: center;
@@ -13,7 +14,7 @@
     outline: none;
     padding: 0.5rem 1rem;
     border: dotted;
-    border-color: gray;
+    border-color: $main_color;
   }
 }
 
@@ -39,7 +40,7 @@
   .box {
     border-radius: 0.5rem;
     width: 32.8%;
-    border: 1px solid gray;
+    border: 1px solid $main_color;
 
     padding: 1rem 0.5rem;
     margin: 0.2rem;
@@ -53,7 +54,7 @@
       text-align: end;
       span:hover {
         cursor: pointer;
-        color: red;
+        color: $validation_color;
       }
     }
 

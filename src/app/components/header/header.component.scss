@@ -1,6 +1,7 @@
 @import "./media/header-media.scss";
+@import "/src/app/color.scss";
 .header {
-  background-color: gray;
+  background-color: $main_color;
   display: flex;
   justify-content: center;
   .welcome {
@@ -41,7 +42,7 @@
 
       li:hover {
         cursor: pointer;
-        background-color: rgb(107, 102, 102);
+        background-color: $hover_color;
       }
     }
 
@@ -58,7 +59,7 @@
         width: 50%;
         text-align: center;
         a {
-          color: black;
+          color: $text_color;
           text-decoration: none;
         }
         span:nth-child(1) {
@@ -67,7 +68,7 @@
       }
       li:hover {
         cursor: pointer;
-        background-color: rgb(107, 102, 102);
+        background-color: $hover_color;
       }
     }
   }
@@ -82,7 +83,7 @@
   .toggle-menu {
     width: 40%;
     height: 100%;
-    background-color: rgb(159, 155, 155);
+    background-color: $opacity_color;
     opacity: 0.8;
     ul {
       list-style: none;
@@ -93,7 +94,7 @@
       }
       li:hover {
         cursor: pointer;
-        background-color: rgb(107, 102, 102);
+        background-color: $hover_color;
       }
     }
   }

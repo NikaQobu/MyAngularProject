@@ -1,4 +1,5 @@
 @import "./media/home-media.scss";
+@import "/src/app/color.scss";
 .home-container {
   margin: 1rem auto;
   width: 80%;
@@ -34,15 +35,15 @@
     padding-top: 0.5rem;
     margin: auto;
     .point {
-      color: gray;
+      color: $main_color;
     }
     .selected-point {
-      background-color: rgb(107, 102, 102);
+      background-color: $hover_color;
       border-radius: 1rem;
     }
     .point:hover {
       cursor: pointer;
-      background-color: rgb(107, 102, 102);
+      background-color: $hover_color;
       border-radius: 1rem;
     }
   }

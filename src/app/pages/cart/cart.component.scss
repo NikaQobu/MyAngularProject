@@ -1,4 +1,5 @@
 @import "./media/cart-media.scss";
+@import "/src/app/color.scss";
 .cart-container {
   width: 80%;
   margin: auto;
@@ -21,15 +22,15 @@
     }
     button:hover {
       cursor: pointer;
-      background-color: rgb(107, 102, 102);
+      background-color: $hover_color;
     }
   }
   .item {
     margin: 1rem 0rem;
-    border: 1px solid gray;
+    border: 1px solid $main_color;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    border: 1px solid $text_color;
     .delete {
       text-align: end;
       span {

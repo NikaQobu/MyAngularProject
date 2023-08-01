@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetProductsResponse, Product } from '../types/data';
 import { ENVINROMENT } from 'src/environment/environment';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,12 +12,10 @@ export class ProductsService {
   baseUrl = ENVINROMENT.baseUrl;
   cartProducts: any = [];
   cartItemCount$ = new BehaviorSubject(0);
-  productDetailsSpinerStatus$ = new BehaviorSubject<boolean>(false);
 
   constructor(private router: Router, private http: HttpClient) {}
 
   getAllProducts() {
-    this.productDetailsSpinerStatus$.next(false);
     return this.http.get<GetProductsResponse>(`${this.baseUrl}/products`);
   }
 

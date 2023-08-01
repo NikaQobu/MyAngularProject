@@ -1,6 +1,7 @@
 @import "./media/contact-media.scss";
+@import "/src/app/color.scss";
 .validation-error {
-  color: red;
+  color: $validation_color;
 }
 .container-contact {
   width: 80%;
@@ -9,7 +10,7 @@
   justify-content: space-between;
   position: relative;
   .send-successe {
-    border: 1px solid black;
+    border: 1px solid $text_color;
     width: 50%;
     text-align: center;
     padding: 4rem 0rem;
@@ -20,7 +21,7 @@
     max-height: 300px;
     position: absolute;
     left: 30%;
-    background-color: rgb(247, 244, 244);
+    background-color: $successe_color;
     button {
       margin-top: 1rem;
       width: 35%;
@@ -29,7 +30,7 @@
       border-radius: 1rem;
     }
     button:hover {
-      background-color: rgb(203, 202, 202);
+      background-color: $successe_color;
     }
   }
   .message-contact {
@@ -57,11 +58,11 @@
       margin-top: 2rem;
       button {
         padding: 1rem 2rem;
-        border: 1px solid black;
+        border: 1px solid $text_color;
       }
       button:hover {
         cursor: pointer;
-        background-color: rgb(107, 102, 102);
+        background-color: $hover_color;
       }
     }
   }
@@ -69,13 +70,13 @@
   .call-contact {
     width: 35%;
     .number {
-      border: 1px solid black;
+      border: 1px solid $text_color;
       width: 60%;
       border-radius: 1rem;
       padding: 1rem 0rem;
       text-align: center;
       margin: 1rem 0rem;
-      color: rgb(107, 102, 102);
+      color: $hover_color;
       .call {
         padding-right: 0.5rem;
       }

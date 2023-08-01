@@ -1,4 +1,5 @@
 @import "./media/product-details-media.scss";
+@import "/src/app/color.scss";
 .spiner {
   margin-top: 1rem;
   text-align: center;
@@ -28,7 +29,7 @@
       }
       img:hover {
         cursor: pointer;
-        border: 1px solid gray;
+        border: 1px solid $main_color;
       }
     }
     h3 {
@@ -55,7 +56,7 @@
     .buy-item {
       width: 30%;
       margin: 4rem 6rem;
-      border: 1px solid black;
+      border: 1px solid $text_color;
       border-radius: 0.5rem;
       padding: 1rem 0rem;
       text-align: center;
@@ -63,7 +64,7 @@
     }
     .buy-item:hover {
       cursor: pointer;
-      background-color: rgb(107, 102, 102);
+      background-color: $hover_color;
     }
   }
 }
